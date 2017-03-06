@@ -7,7 +7,7 @@ class NotFlask():
 
     @staticmethod
     def build_route_pattern(route):
-        route_regex = re.sub(r'(<\w+>)', r'(?P\1.+)', route)
+        route_regex = re.sub(r'(<\w+?>)', r'(?P\1.*?)(?=/)', route)
         return re.compile("^{}$".format(route_regex))
 
     def route(self, route_str):
